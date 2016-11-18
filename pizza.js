@@ -10,34 +10,34 @@ constructor(s,m,v){
   //type instance functions below
 sizeCost(){
   if(this.size = "Small"){
-    return sizeCost() = 7.99;
+    return 7.99;
   }
   else if(this.size = "Medium"){
-    return sizeCost() = 9.99;
+    return 9.99;
   }
   else if(this.size = "Large"){
-    return sizeCost() = 12.99;
+    return 12.99;
   }
   else if(this.size = "Extra-Large"){
-    return sizeCost() = 15.99;
+    return 15.99;
   }
 }
 
 toppingCost(top){
-  if(top == this.meatToppings){
-    return meatToppings.length*.99;
+  if(top == meat){
+    return this.meatToppings.length*0.99;
   }
-  if(top == this.veggieToppings){
-    return veggieToppings.length*.5;
+  if(top == veggie){
+    return this.veggieToppings.length*0.5;
   }
 }
 
 price(){
-  return toppingCost()+sizeCost();
+  return this.sizeCost()+this.toppingCost(meat)+this.toppingCost(veggie);
 }
-
-
   //type class functions below
-
-
+static promotionalDeal(pizza,percent){
+  this.percent = percent*0.01
+  return pizza.price()*percent
+}
 }
