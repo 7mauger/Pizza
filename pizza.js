@@ -37,7 +37,7 @@ price(){
 }
   //type class functions below
 static promotionalDeal(pizza,percent){
-  this.percent = percent*0.01
-  return pizza.price()*percent
+  percent = percent*0.01
+  return pizza.price()-(pizza.price()*percent);
 }
 }
