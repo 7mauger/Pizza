@@ -35,6 +35,28 @@ toppingCost(top){
 price(){
   return this.sizeCost()+this.toppingCost(meat)+this.toppingCost(veggie);
 }
+
+addTopping(toptype,newtop){
+  if(toptype == "meat"){
+    this.meatToppings.push(newtop);
+  }
+  else if(toptype == "veggie"){
+    this.veggieToppings.push(newtop);
+  }
+}
+
+removeTopping(toptype,newtop){
+  let front;
+  let back;
+  if(toptype == "meat"){
+    let index = this.meatToppings.indexOf(newtop);
+    front = this.meatToppings.splice(0,index);
+    
+  }
+  else if(toptype == "veggie"){
+
+  }
+}
   //type class functions below
 static promotionalDeal(pizza,percent){
   percent = percent*0.01
