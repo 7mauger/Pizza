@@ -1,4 +1,4 @@
-class pizza{
+class Pizza{
   //type constructor below
 constructor(s,m,v){
   this.size = s
@@ -9,16 +9,16 @@ constructor(s,m,v){
 
   //type instance functions below
 sizeCost(){
-  if(this.size = "Small"){
+  if(this.size == "S" || this.size == "s"){
     return 7.99;
   }
-  else if(this.size = "Medium"){
+  else if(this.size == "M"){
     return 9.99;
   }
-  else if(this.size = "Large"){
+  else if(this.size == "L"){
     return 12.99;
   }
-  else if(this.size = "Extra-Large"){
+  else if(this.size == "XL"){
     return 15.99;
   }
 }
@@ -50,11 +50,15 @@ removeTopping(toptype,newtop){
   let back;
   if(toptype == "meat"){
     let index = this.meatToppings.indexOf(newtop);
-    front = this.meatToppings.splice(0,index);
-    
+    front = this.meatToppings.slice(0,index);
+    back = this.meatToppings.slice(index+1,this.meatToppings.length);
+    this.meatToppings = front.concat(back);
   }
   else if(toptype == "veggie"){
-
+    let index = this.veggieToppings.indexOf(newtop);
+    front = this.veggieToppings.slice(0,index);
+    back = this.veggieToppings.slice(index+1,this.veggieToppings.length);
+    this.veggieToppings = front.concat(back);
   }
 }
   //type class functions below
@@ -63,3 +67,7 @@ static promotionalDeal(pizza,percent){
   return pizza.price()-(pizza.price()*percent);
 }
 }
+
+let mypizza = new Pizza("L",["pepperoni"],["onions","peppers","olives"]);
+mypizza.removeTopping("veggie",["olives"]);
+mypizza.addTopping("meat",["bacon"]);
